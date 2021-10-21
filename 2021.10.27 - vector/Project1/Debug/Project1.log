@@ -1,0 +1,17 @@
+﻿  Source.cpp
+C:\Users\Саша\source\repos\home work\2021.10.27 - vector\Project1\Source.cpp(23,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(4142,18): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(4178): message : выполняется компиляция ссылки на экземпляр шаблон функции "_OutIt std::_Copy_unchecked<double*,_OutIt>(_InIt,_InIt,_OutIt)"
+          with
+          [
+              _OutIt=int *,
+              _InIt=double *
+          ]
+C:\Users\Саша\source\repos\home work\2021.10.27 - vector\Project1\Source.cpp(74): message : выполняется компиляция ссылки на экземпляр шаблон функции "_OutIt *std::copy<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,int*>(_InIt,_InIt,_OutIt)"
+          with
+          [
+              _OutIt=int *,
+              _Ty=double,
+              _InIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<double>>>
+          ]
+  Project1.vcxproj -> C:\Users\Саша\source\repos\home work\2021.10.27 - vector\Debug\Project1.exe
