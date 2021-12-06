@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\Users\Саша\source\repos\2021-2022\2021.11.11 - binary tree\Project2\Source.cpp(220): warning C4715: eval: значение возвращается не при всех путях выполнения
+C:\Users\Саша\source\repos\2021-2022\2021.11.11 - binary tree\Project2\Source.cpp(343): warning C4715: searchRe: значение возвращается не при всех путях выполнения
+C:\Users\Саша\source\repos\2021-2022\2021.11.11 - binary tree\Project2\Source.cpp(385): warning C4715: addRe: значение возвращается не при всех путях выполнения
+C:\Users\Саша\source\repos\2021-2022\2021.11.11 - binary tree\Project2\Source.cpp(423): warning C4715: addCy: значение возвращается не при всех путях выполнения
+  Project2.vcxproj -> C:\Users\Саша\source\repos\2021-2022\2021.11.11 - binary tree\Debug\Project2.exe
