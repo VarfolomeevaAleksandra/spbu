@@ -58,13 +58,14 @@ void function_3()
 }
 
 template <typename T>
-set <T> function_4(set <T> v, set <T> w) {
+set <T> function_4(set <T> v, set <T> w) 
+{
 	set <T> result;
-	for (int x : v)
+	for (auto x : v)
 	{
 		result.insert(x);
 	}
-	for (int x : w)
+	for (auto x : w)
 	{
 		result.insert(x);
 	}

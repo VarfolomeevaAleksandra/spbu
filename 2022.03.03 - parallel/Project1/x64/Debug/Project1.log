@@ -1,0 +1,9 @@
+﻿  Source.cpp
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(158,8): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(373,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(419,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(433,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(482,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(496,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\Project1\Source.cpp(510,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  Project1.vcxproj -> C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.03.03 - parallel\x64\Debug\Project1.exe
