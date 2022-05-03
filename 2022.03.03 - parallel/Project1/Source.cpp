@@ -48,7 +48,7 @@ double pi_1(int n)
 	{
 #pragma omp section
 		{
-			for (double i = 1; i <= n ; i+=2)
+			for (double i = 1; i <= n; i+=2)
 			{
 				pi += (1.0 / (1.0 + ((2.0 * i - 1) / (2.0 * n)) * ((2.0 * i - 1) / (2.0 * n))));
 			}
@@ -69,9 +69,8 @@ double pi_1(int n)
 double pi_2(int n)
 {
 	double pi = 0;
-	double j = 0;
 	double t = omp_get_wtime();
-	for (double i = 0; i <= n; ++i)
+	for (double i = 1; i <= n; ++i)
 	{
 		pi += (1.0 / (1.0 + ((2.0 * i - 1) / (2.0 * n)) * ((2.0 * i - 1) / (2.0 * n))));
 	}
@@ -125,215 +124,20 @@ struct Point
 	
 	double dist(Point p1)
 	{
-		return sqrt(((x - p1.x) * (x - p1.x)) + ((y - p1.y) * (y - p1.y)));
+		return ((x - p1.x) * (x - p1.x)) + ((y - p1.y) * (y - p1.y));
 	}
 };
 
 Point p[10000];
 
-//double diameter_line(int n)
-//{
-//	double max = 0;
-//	double d = 0;
-//	for (int i = 0; i < n - 1; ++i)
-//	{
-//		for (int j = i; j < n; ++j)
-//		{
-//			d = p[i].dist(p[j]);
-//			if (max < d)
-//			{
-//				max = d;
-//			}
-//		}
-//	}
-//	return max;
-//}
-//
-//double diameter_2(int n)
-//{
-//	double max1 = 0;
-//	double max2 = 0;
-//	double d1 = 0;
-//	double d2 = 0;
-//	int c = n - sqrt(2) * n / 2;
-//#pragma omp parallel sections
-//	{
-//#pragma omp section
-//		{
-//			for (int i = 0; i < c; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d1 = p[i].dist(p[j]);
-//					if (max1 < d1)
-//					{
-//						max1 = d1;
-//					}
-//				}
-//			}
-//		}
-//#pragma omp section
-//		{
-//			for (int i = c; i < n - 1; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d2 = p[i].dist(p[j]);
-//					if (max2 < d2)
-//					{
-//						max2 = d2;
-//					}
-//				}
-//			}
-//		}
-//	}
-//	return (max1 > max2) ? max1 : max2;
-//}
-//
-//double diameter_3(int n)
-//{
-//	double max1 = 0;
-//	double max2 = 0;
-//	double max3 = 0;
-//	double d1 = 0;
-//	double d2 = 0;
-//	double d3 = 0;
-//	int b = n - n / sqrt(3);
-//	int a = b - sqrt(2) * b / 2;
-//
-//#pragma omp parallel sections
-//	{
-//#pragma omp section
-//		{
-//			for (int i = 0; i < a; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d1 = p[i].dist(p[j]);
-//					if (max1 < d1)
-//					{
-//						max1 = d1;
-//					}
-//				}
-//			}
-//		}
-//#pragma omp section
-//		{
-//			for (int i = a; i < b; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d2 = p[i].dist(p[j]);
-//					if (max2 < d2)
-//					{
-//						max2 = d2;
-//					}
-//				}
-//			}
-//		}
-//#pragma omp section
-//		{
-//			for (int i = b; i < n - 1; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d3 = p[i].dist(p[j]);
-//					if (max3 < d3)
-//					{
-//						max3 = d3;
-//					}
-//				}
-//			}
-//		}
-//	}
-//	max1 = (max1 > max2) ? max1 : max2;
-//	return (max1 > max3) ? max1 : max3;
-//}
-//
-//double diameter_4(int n)
-//{
-//	double max1 = 0;
-//	double max2 = 0;
-//	double max3 = 0;
-//	double max4 = 0;
-//	double d1 = 0;
-//	double d2 = 0;
-//	double d3 = 0;
-//	double d4 = 0;
-//	int c2 = n - sqrt(2) * n / 2;
-//	int c1 = c2 - sqrt(2) * c2 / 2;
-//	int c3 = 2 * c2 - sqrt(2) * c2 / 2;
-//#pragma omp parallel sections
-//	{
-//#pragma omp section
-//		{
-//			for (int i = 0; i < c1; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d1 = p[i].dist(p[j]);
-//					if (max1 < d1)
-//					{
-//						max1 = d1;
-//					}
-//				}
-//			}
-//		}
-//#pragma omp section
-//		{
-//			for (int i = c1; i < c2; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d2 = p[i].dist(p[j]);
-//					if (max2 < d2)
-//					{
-//						max2 = d2;
-//					}
-//				}
-//			}
-//		}
-//#pragma omp section
-//		{
-//			for (int i = c2; i < c3; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d3 = p[i].dist(p[j]);
-//					if (max3 < d3)
-//					{
-//						max3 = d3;
-//					}
-//				}
-//			}
-//		}
-//#pragma omp section
-//		{
-//			for (int i = c3; i < n - 1; ++i)
-//			{
-//				for (int j = i; j < n; ++j)
-//				{
-//					d4 = p[i].dist(p[j]);
-//					if (max4 < d4)
-//					{
-//						max4 = d4;
-//					}
-//				}
-//			}
-//		}
-//	}
-//	max1 = (max1 > max2) ? max1 : max2;
-//	max1 = (max1 > max3) ? max1 : max3;
-//	return (max1 > max4) ? max1 : max4;
-//}
-//
+
 double diam(int n)
 {
 	double maxd = 0;
 	double d = 0;
 	for (int i = 0; i < n - 1; ++i)
 	{
-		for (int j = i; j < n; ++j)
+		for (int j = i + 1; j < n; ++j)
 		{
 			d = p[i].dist(p[j]);
 			if (maxd < d)
@@ -358,7 +162,7 @@ double diam_2(int n)
 		{
 			for (int i = 0; i < x; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
 					d1 = p[i].dist(p[j]);
 					if (maxd1 < d1)
@@ -372,7 +176,7 @@ double diam_2(int n)
 		{
 			for (int i = x; i < n - 1; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
 					d2 = p[i].dist(p[j]);
 					if (maxd2 < d2)
@@ -396,7 +200,7 @@ double diam_3(int n)
 	double d2 = 0;
 	double d3 = 0;
 	double y = n - n / sqrt(3);
-	double x = n - sqrt(6) * n / 3;
+	double x = y - sqrt(2) * y / 2;
 
 #pragma omp parallel sections
 	{
@@ -404,8 +208,10 @@ double diam_3(int n)
 		{
 			for (int i = 0; i < x; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				//cout << "i: " << i << ", ";
+				for (int j = i + 1; j < n; ++j)
 				{
+					//cout << "i: " << i << ", j: " << j << endl;
 					d1 = p[i].dist(p[j]);
 					if (maxd1 < d1)
 					{
@@ -416,10 +222,12 @@ double diam_3(int n)
 		}
 #pragma omp section
 		{
-			for (int i = x; i < y; ++i)
+			for (int i = x + 1; i < y; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				//cout << "i: " << i << ", ";
+				for (int j = i + 1; j < n; ++j)
 				{
+					//cout << "i: " << i << ", j: " << j << endl;
 					d2 = p[i].dist(p[j]);
 					if (maxd2 < d2)
 					{
@@ -430,10 +238,11 @@ double diam_3(int n)
 		}
 #pragma omp section
 		{
-			for (int i = y; i < n - 1; ++i)
+			for (int i = y + 1; i < n - 1; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
+					//cout << "i: " << i << ", j: " << j << endl;
 					d3 = p[i].dist(p[j]);
 					if (maxd3 < d3)
 					{
@@ -458,16 +267,16 @@ double diam_4(int n)
 	double d2 = 0;
 	double d3 = 0;
 	double d4 = 0;
-	double x = n - sqrt(3) * n / 2;
 	double y = n - sqrt(2) * n / 2;
-	double z = n/2;
+	double x = y - sqrt(2) * y / 2;
+	double z = 2 * y - sqrt(2) * y / 2;
 #pragma omp parallel sections
 	{
 #pragma omp section
 		{
 			for (int i = 0; i < x; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
 					d1 = p[i].dist(p[j]);
 					if (maxd1 < d1)
@@ -479,9 +288,9 @@ double diam_4(int n)
 		}
 #pragma omp section
 		{
-			for (int i = x; i < y; ++i)
+			for (int i = x + 1; i < y; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
 					d2 = p[i].dist(p[j]);
 					if (maxd2 < d2)
@@ -493,9 +302,9 @@ double diam_4(int n)
 		}
 #pragma omp section
 		{
-			for (int i = y; i < z; ++i)
+			for (int i = y + 1; i < z; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
 					d3 = p[i].dist(p[j]);
 					if (maxd3 < d3)
@@ -507,9 +316,9 @@ double diam_4(int n)
 		}
 #pragma omp section
 		{
-			for (int i = z; i < n - 1; ++i)
+			for (int i = z + 1; i < n - 1; ++i)
 			{
-				for (int j = i; j < n; ++j)
+				for (int j = i + 1; j < n; ++j)
 				{
 					d4 = p[i].dist(p[j]);
 					if (maxd4 < d4)
