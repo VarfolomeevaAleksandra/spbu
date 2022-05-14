@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1651757190 source:c:\users\alexandra\source\repos\varfolomeevaaleksandra\2021-2022\2022.04.17 - parallel_for\test reduction max #4 2.0\main.cpp
+	<iostream>
+	<omp.h>
+	<algorithm>
+	<cstdlib>
+

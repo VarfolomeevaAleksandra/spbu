@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1651758248 source:c:\users\alexandra\source\repos\varfolomeevaaleksandra\2021-2022\2022.04.17 - task\project1_3\main\main.cpp
+	<iostream>
+	<omp.h>
+	<algorithm>
+	<cstdlib>
+

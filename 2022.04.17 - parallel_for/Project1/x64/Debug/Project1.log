@@ -1,2 +1,4 @@
 ﻿  Source1.cpp
-  Project1.vcxproj -> C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.04.17 - parallel_for\x64\Debug\Project1.exe
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.04.17 - parallel_for\Project1\Source1.cpp(217,9): error C3036: max: недопустимая лексема оператора в предложении OpenMP "reduction"
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.04.17 - parallel_for\Project1\Source1.cpp(236,9): error C3036: max: недопустимая лексема оператора в предложении OpenMP "reduction"
+C:\Users\ALEXANDRA\source\repos\VarfolomeevaAleksandra\2021-2022\2022.04.17 - parallel_for\Project1\Source1.cpp(255,9): error C3036: max: недопустимая лексема оператора в предложении OpenMP "reduction"

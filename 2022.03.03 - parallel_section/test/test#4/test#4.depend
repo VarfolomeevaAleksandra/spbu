@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1651754141 source:c:\users\alexandra\source\repos\varfolomeevaaleksandra\2021-2022\2022.03.03 - parallel_section\test\test#4\main.cpp
+	<iostream>
+	<omp.h>
+	<algorithm>
+	<vector>
+	<cmath>
+
