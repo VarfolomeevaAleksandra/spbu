@@ -49,7 +49,7 @@ void transform_parl(double **matrix, int m, int n)
 		}
 		if (x != matrix[j][j]) swap(matrix, j, a, n);
 		divide(matrix, j, x, m, n);
-#pragma omp parallel for schedule(static, 3)
+#pragma omp parallel for schedule(static, 5)
 		for (int k = 0; k < m; ++k)
 		{
 			//cout << "number of thread = " << omp_get_thread_num() << endl;

@@ -80,10 +80,10 @@ int Find(string what, string s, int a, int b)
 int Find_thread(string what, string s, int threads, int a)
 {
 	int b = a + block_size(threads, s.size());
-	/*if (s.find_first_of(what[0], b - what.size() + 1) != -1 && b + what.size() < s.size())
+	if (s.find(what[0], b - what.size()) != -1 && b + what.size() < s.size() && s.find(what[0], b - what.size()) < b)
 	{
 		b += what.size();
-	}*/
+	}
 	cout << a << " " << b << endl;
 	int n = 0;
 	n = Find(what, s, a, b);

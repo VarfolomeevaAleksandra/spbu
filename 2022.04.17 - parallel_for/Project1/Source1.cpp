@@ -8,7 +8,7 @@ using namespace std;
 double* sin1 = new double[100000000];
 //double* sin2 = new double[100000000];
 
-void sin_pf(int n)
+/*void sin_pf(int n)
 {
 	cout << "#1 sin" << endl;
 	double t = omp_get_wtime();
@@ -70,7 +70,7 @@ void pi_pf(int n)
 	pi = pi * 4 / n;
 	cout << "Time static: " << omp_get_wtime() - t << endl;
 	cout << "pi = " << pi << endl;
-	
+
 
 	pi = 0;
 	t = omp_get_wtime();
@@ -82,7 +82,7 @@ void pi_pf(int n)
 	pi = pi * 4 / n;
 	cout << "Time dynamic: " << omp_get_wtime() - t << endl;
 	cout << "pi = " << pi << endl;
-	
+
 
 	pi = 0;
 	t = omp_get_wtime();
@@ -122,7 +122,7 @@ void prime_numbers_pf(int n)
 	}
 	cout << "Time line: " << omp_get_wtime() - t << endl;
 	cout << "sum: " << p << endl;
-	
+
 
 	p = 0;
 	t = omp_get_wtime();
@@ -165,7 +165,7 @@ void prime_numbers_pf(int n)
 	cout << "Time guided: " << omp_get_wtime() - t << endl;
 	cout << "sum: " << p << endl;
 	cout << endl;
-}
+}*/
 
 struct Point
 {
@@ -178,7 +178,7 @@ struct Point
 	}
 };
 
-Point p[10000];
+Point p[1000000];
 
 void filling_p(int n)
 {
@@ -198,7 +198,7 @@ void diameter_pf(int n)
 	double t = omp_get_wtime();
 	for (int i = 0; i < n - 1; ++i)
 	{
-		for (int j = i; j < n; ++j)	
+		for (int j = i; j < n; ++j)
 		{
 			d = p[i].dist(p[j]);
 			if (max < d)
@@ -207,14 +207,14 @@ void diameter_pf(int n)
 			}
 		}
 	}
-	cout << "diameter :" << max << endl;
+	cout << "diameter :" << sqrt(max) << endl;
 	cout << "Time line: " << omp_get_wtime() - t << endl;
-	
+
 
 	max = 0;
 	d = 0;
 	t = omp_get_wtime();
-#pragma omp parallel for schedule(static) reduction (max: max)
+#pragma omp parallel for schedule(static,10) reduction (max: max)
 	for (int i = 0; i < n - 1; ++i)
 	{
 		for (int j = i; j < n; ++j)
@@ -226,9 +226,9 @@ void diameter_pf(int n)
 			}
 		}
 	}
-	cout << "diameter :" << max << endl;
+	cout << "diameter :" << sqrt(max) << endl;
 	cout << "Time static: " << omp_get_wtime() - t << endl;
-	
+
 
 	max = 0;
 	d = 0;
@@ -245,9 +245,9 @@ void diameter_pf(int n)
 			}
 		}
 	}
-	cout << "diameter :" << max << endl;
+	cout << "diameter :" << sqrt(max) << endl;
 	cout << "Time dynamic: " << omp_get_wtime() - t << endl;
-	
+
 
 	max = 0;
 	d = 0;
@@ -264,7 +264,7 @@ void diameter_pf(int n)
 			}
 		}
 	}
-	cout << "diameter :" << max << endl;
+	cout << "diameter :" << sqrt(max) << endl;
 	cout << "Time guided: " << omp_get_wtime() - t << endl;
 }
 
@@ -272,9 +272,9 @@ int main()
 {
 	int n = 0;
 	cin >> n;
-	sin_pf(n);
-	pi_pf(n);
-	prime_numbers_pf(n);
+	//sin_pf(n);
+	//pi_pf(n);
+	//prime_numbers_pf(n);
 	diameter_pf(n);
 
 	return EXIT_SUCCESS;

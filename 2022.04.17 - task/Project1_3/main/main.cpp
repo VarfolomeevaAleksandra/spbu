@@ -2,6 +2,7 @@
 #include<omp.h>
 #include<algorithm>
 #include<cstdlib>
+#include<math.h>
 
 using namespace std;
 const int n = 10'000'000;
@@ -12,30 +13,12 @@ double f(double x)
 }
 double integr(double (*f)(double), double A, double B)
 {
-    double h = (B - A) / 10;
-    //cout << "h = " << h << endl;
-    double I;
-    double Xn [11] = {0};
-    Xn[0] = f(A);
-    //cout << "A = " << A << endl;
-    //cout << "Xn[0] = " << Xn[0] << endl;
-    Xn[10] = f(B);
-    //cout << "B = " << B << endl;
-    //cout << "Xn[10] = " << Xn[10] << endl;
-    for (int i = 1; i < 10; ++i)
-    {
-        //cout << "f = " << f(A + (h * i)) << endl;
-        Xn[i] = f(A + (h * i));
-        //cout << Xn[i] << endl;
-    }
-    I = h * ((B - A) / 2);
-    for (int i = 1; i < 10; ++i)
-    {
-        //cout << "Xn[i] * h = " << Xn[i] * h << endl;
-        //cout << "I = " << I << endl;
-        I = I + (Xn[i] * h);
-        //cout << "I = " << I << endl;
-    }
+    double I = 0;
+	double h = (B - A) / 10;
+	for (int i = 0; i < 10; ++i)
+	{
+		I += h * (f(A + i * h) + f(A + (i + 1) * h)) / 2;
+	}
     return I;
 }
 
@@ -45,17 +28,13 @@ double integral(double (*f)(double), double A, double B)
     double I1;
     double I2;
     I = integr(f, A, B);
-    //cout << "I = " << I << endl;
-    I1 = integr(f, A, ((B - A)/2));
-    //cout << "I1 = " << I1 << endl;
-    I2 = integr(f, ((B - A)/2), B);
-    //cout << "I2 = " << I2 << endl;
-    //cout << "I - (I1 + I2) = " << (I - (I1 + I2)) << endl;
-    if ((I - (I1 + I2)) < (1e-10)) return I;
+    I1 = integr(f, A, (A + B)/2);
+    I2 = integr(f, ((A + B)/2), B);
+    if (fabs(I - (I1 + I2)) < (1e-10)) return I;
 #pragma omp task shared(I1)
-    I1 = integral(f, A, ((B - A)/2));
+    I1 = integral(f, A, ((A + B)/2));
 #pragma omp task shared (I2)
-    I2 = integral(f, ((B - A)/2), B);
+    I2 = integral(f, ((A + B)/2), B);
 #pragma omp taskwait
     return I1 + I2;
 }
@@ -123,7 +102,7 @@ int main()
     }
     cout << I << endl;
 
-    /*int mas[20] = {0};
+    int mas[20] = {0};
     for (int i = 0; i < 20; ++i)
     {
         mas[i] = rand() % 100;
@@ -135,10 +114,7 @@ int main()
     for (int i = 0; i < 20; ++i)
     {
         cout << mas[i] << " ";
-    }*/
-
-
-
+    }
 
     return EXIT_SUCCESS;
 }
