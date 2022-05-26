@@ -140,6 +140,10 @@ int main()
 	}
 	cout << endl;
 	double t = omp_get_wtime();
+
+	//חהוסü ןמקולף-עמ ןנט גûחמגו system_solution_parl גסו נאבמעאוע
+	//א ןנט גûחמגו transform_parl ןנמדנאללא מעגוע םו גûהאוע
+
 	/*system_solution_parl(matrix1, n, m);
 	cout << "Time parl: " << omp_get_wtime() - t << endl;*/
 
