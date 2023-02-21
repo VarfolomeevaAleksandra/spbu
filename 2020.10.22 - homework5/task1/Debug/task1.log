@@ -1,0 +1,4 @@
+﻿  ArrayList.cpp
+C:\Users\Саша\source\repos\hw\2020.10.22 - homework5\task1\ArrayList.cpp(197,24): warning C4305: аргумент: усечение из "int" в "char"
+C:\Users\Саша\source\repos\hw\2020.10.22 - homework5\task1\ArrayList.cpp(197,20): warning C4309: аргумент: усечение константного значения
+  task1.vcxproj -> C:\Users\Саша\source\repos\hw\2020.10.22 - homework5\Debug\task1.exe

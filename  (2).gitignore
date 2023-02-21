@@ -1,0 +1,65 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Homework3.1/.vs/Homework3.1/v16/Browse.VC.opendb
+/Homework3.1/.vs/Homework3.1/v16/Browse.VC.db-wal
+/Homework3.1/.vs/Homework3.1/v16/Browse.VC.db-shm
+/Homework3.1/.vs/Homework3.1/v16/Browse.VC.db
+/homework4/.vs/homework4/v16/Browse.VC.opendb
+/homework4/.vs/homework4/v16/Browse.VC.db-wal
+/homework4/.vs/homework4/v16/Browse.VC.db-shm
+/homework4/.vs/homework4/v16/Browse.VC.db
+/2020.10.22 - homework5/.vs/2020.10.22 - homework5/v16/Browse.VC.opendb
+/2020.10.22 - homework5/.vs/2020.10.22 - homework5/v16/Browse.VC.db-wal
+/2020.10.22 - homework5/.vs/2020.10.22 - homework5/v16/Browse.VC.db-shm
+/2020.10.22 - homework5/.vs/2020.10.22 - homework5/v16/Browse.VC.db
+/2020.10.10 - homework4/.vs/homework4/v16/Browse.VC.opendb
+/2020.10.10 - homework4/.vs/homework4/v16/Browse.VC.db-wal
+/2020.10.10 - homework4/.vs/homework4/v16/Browse.VC.db-shm
+/2020.10.29 - homework6/.vs/2020.10.29 - homework6/v16/Browse.VC.opendb
+/2020.10.29 - homework6/.vs/2020.10.29 - homework6/v16/Browse.VC.db-wal
+/2020.10.29 - homework6/.vs/2020.10.29 - homework6/v16/Browse.VC.db-shm
+/2020.11.04 - homework7/.vs/2020.11.04 - homework7/v16/Browse.VC.opendb
+/2020.11.04 - homework7/.vs/2020.11.04 - homework7/v16/Browse.VC.db-wal
+/2020.11.04 - homework7/.vs/2020.11.04 - homework7/v16/Browse.VC.db-shm
+/2020.19.11 - homework8/.vs/2020.19.11 - homework8/v16/Browse.VC.opendb
+/2020.19.11 - homework8/.vs/2020.19.11 - homework8/v16/Browse.VC.db-wal
+/2020.19.11 - homework8/.vs/2020.19.11 - homework8/v16/Browse.VC.db-shm
+/task1/.vs/2020.12.02 - homework9/v16/Browse.VC.opendb
+/task1/.vs/2020.12.02 - homework9/v16/Browse.VC.db-wal
+/task1/.vs/2020.12.02 - homework9/v16/Browse.VC.db-shm
+/2020.11.19 - homework8/.vs/2020.19.11 - homework8/v16/Browse.VC.opendb
+/2020.11.19 - homework8/.vs/2020.19.11 - homework8/v16/Browse.VC.db-wal
+/2020.11.19 - homework8/.vs/2020.19.11 - homework8/v16/Browse.VC.db-shm
+/2020.12.03 - homework9/.vs/2020.12.03 - homework9/v16/Browse.VC.opendb
+/2020.12.03 - homework9/.vs/2020.12.03 - homework9/v16/Browse.VC.db-wal
+/2020.12.03 - homework9/.vs/2020.12.03 - homework9/v16/Browse.VC.db-shm
+/2020.12.03 - test-1/.vs/2020.12.03 - test-1/v16/Browse.VC.opendb
+/2020.12.03 - test-1/.vs/2020.12.03 - test-1/v16/Browse.VC.db-wal
+/2020.12.03 - test-1/.vs/2020.12.03 - test-1/v16/Browse.VC.db-shm
+/2020.12.24 - homework10/.vs/2020.12.24 - homework10/v16/Browse.VC.opendb
+/2020.12.24 - homework10/.vs/2020.12.24 - homework10/v16/Browse.VC.db-wal
+/2020.12.24 - homework10/.vs/2020.12.24 - homework10/v16/Browse.VC.db-shm
+/2020.12.24 - homework10/.vs/2020.12.24 - homework10/v16/Browse.VC.db
+/Task1/.vs/2021.02.23-Homework1/v16/Browse.VC.opendb
+/Task1/.vs/2021.02.23-Homework1/v16/Browse.VC.db-wal
+/Task1/.vs/2021.02.23-Homework1/v16/Browse.VC.db-shm
+/2021.02.23-Homework1/.vs/2021.02.23-Homework1/v16/Browse.VC.opendb
+/2021.02.23-Homework1/.vs/2021.02.23-Homework1/v16/Browse.VC.db-wal
+/2021.02.23-Homework1/.vs/2021.02.23-Homework1/v16/Browse.VC.db-shm
+/2021.03.03 - homework2/.vs/2021.03.03 - homework2/v16/Browse.VC.opendb
+/2021.03.03 - homework2/.vs/2021.03.03 - homework2/v16/Browse.VC.db-wal
+/2021.03.03 - homework2/.vs/2021.03.03 - homework2/v16/Browse.VC.db-shm
+/2021.03.13 - homework3/.vs/2021.03.13 - homework3/v16/Browse.VC.opendb
+/2021.03.13 - homework3/.vs/2021.03.13 - homework3/v16/Browse.VC.db-wal
+/2021.03.13 - homework3/.vs/2021.03.13 - homework3/v16/Browse.VC.db-shm
+/2021.03.20 - homework4/.vs/2021.03.20 - homework4/v16/Browse.VC.opendb
+/2021.03.20 - homework4/.vs/2021.03.20 - homework4/v16/Browse.VC.db-wal
+/2021.03.20 - homework4/.vs/2021.03.20 - homework4/v16/Browse.VC.db-shm
+/2020.03.28 - homework15/.vs/2021.03.28 - homework5/v16/Browse.VC.opendb
+/2020.03.28 - homework15/.vs/2021.03.28 - homework5/v16/Browse.VC.db-wal
+/2020.03.28 - homework15/.vs/2021.03.28 - homework5/v16/Browse.VC.db-shm
+/task1/.vs/task1/v16/Browse.VC.opendb
+/task1/.vs/task1/v16/Browse.VC.db-wal
+/task1/.vs/task1/v16/Browse.VC.db-shm

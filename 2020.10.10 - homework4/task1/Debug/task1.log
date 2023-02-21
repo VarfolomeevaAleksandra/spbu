@@ -1,0 +1,5 @@
+﻿  ArrayList.cpp
+  Source.cpp
+C:\Users\Саша\source\repos\hw\homework4\task1\Source.cpp(83,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
+  task1.vcxproj -> C:\Users\Саша\source\repos\hw\homework4\Debug\task1.exe
