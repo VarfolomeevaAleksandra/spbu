@@ -125,17 +125,15 @@ pair <double, pair <double, int>> mod_Newton(double x, double x_0, double x_1, d
 
 pair <double, pair <double, int>> secant(double x_0, double x_1, double e, int k)
 {
-	cout << e << endl;
 	pair <double, pair <double, int>> root;
 	double x_2 = x_1 - ((function(x_1) / (function(x_1) - function(x_0))) * (x_1 - x_0));
-	if (abs(x_2 - x_1) > 2 * e)
+	while (abs(x_2 - x_1) > 2 * e)
 	{
 		++k;
 		x_0 = x_1;
 		x_1 = x_2;
-		secant(x_0, x_1, e, k);
+		x_2 = x_1 - ((function(x_1) / (function(x_1) - function(x_0))) * (x_1 - x_0));
 	}
-	cout << x_2 << " " << x_1 << endl;
 	root.first = (x_2 + x_1) / 2;
 	root.second.first = abs(x_2 - x_1);
 	root.second.second = k;
@@ -188,17 +186,13 @@ int main()
 	}
 	cout << "Количество " << intervals.size() << endl;
 
-	cout << "Начальные приближения к корню:" << endl;
-	for (int i = 0; i != intervals.size(); ++i)
-	{
-		cout << (intervals[i].first + intervals[i].second) / 2 << endl;
-	}
 
 	cout << "Метод бисекции:" << endl;
 	pair <double, pair <double, int>> root;
 	for (int i = 0; i != intervals.size(); ++i)
 	{
 		root = bisection(intervals[i].first, intervals[i].second, e);
+		cout << "Начальное приближение к корню: " << (intervals[i].first + intervals[i].second) / 2 << endl;
 		print(root, intervals, e);
 	}
 	
@@ -222,11 +216,24 @@ int main()
 		x_1 = x_0 - (function(x_0) / first_diff(x_0));
 		int k = 0;
 		root = Newton(x_0, x_1, e, k);
+		cout << "Начальное приближение к корню: " << x_0 << endl;
 		print(root, intervals, e);
 	}
 
 	p = 0;
 
+	cout << "Метод секущих" << endl;
+
+
+	for (int i = 0; i != intervals.size(); ++i)
+	{
+		double x_0 = intervals[i].first;
+		double x_1 = intervals[i].second;
+		int k = 0;
+		root = secant(x_0, x_1, e, k);
+		cout << "Начальное приближение к корню: " << x_0 << endl;
+		print(root, intervals, e);
+	}
 
 	cout << "Модифицированный метод Ньютона" << endl;
 
@@ -246,21 +253,12 @@ int main()
 		x_1 = x_0 - (function(x_0) / first_diff(x_0));
 		int k = 0;
 		root = mod_Newton(x, x_0, x_1, e, k);
+		cout << "Начальное приближение к корню: " << x_0 << endl;
 		print(root, intervals, e);
 	}
 
 
-	cout << "Метод секущих" << endl;
-
-
-	for (int i = 0; i != intervals.size(); ++i)
-	{
-		double x_0 = intervals[i].first;
-		double x_1 = intervals[i].second;
-		int k = 0;
-		root = secant(x_0, x_1, e, k);
-		print(root, intervals, e);
-	}
+	
 	
 	return EXIT_SUCCESS;
 
