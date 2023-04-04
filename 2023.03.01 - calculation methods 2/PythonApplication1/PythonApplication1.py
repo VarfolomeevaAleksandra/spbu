@@ -32,18 +32,17 @@ def table():
         f = function(x)
         val[k][0] = x
         val[k][1] = f
-        print(a_1, b_1)
         k = k + 1
     return val
 
 val = table()
 
 
-def print_table():        
-    for i in range(len(val)):
-        print(i, val[i][0], " ", val[i][1])
+def print_table(t):        
+    for i in range(t):
+        print('%-3d %-10.5f %-15.15f' % (i, val[i][0], val[i][1]))
 
-print_table()
+print_table(len(val))
 
 while True:
 
@@ -51,7 +50,7 @@ while True:
 
     x = float(input())
 
-    print('Введите степень многочлена')
+    print('Введите степень многочлена не выше', m)
 
     def check_degree():
         n = int(input())
@@ -59,12 +58,11 @@ while True:
             while True:
                 print('Недопустимая степень, введите заново')
                 n = int(input())
-                if n < m:
+                if n <= m:
                     break
         return n
  
     n = check_degree()
-    print(n)
 
 
     def sort_col(i):
@@ -78,19 +76,19 @@ while True:
         val.sort(key = sort_col)
     
     sort()    
-    print_table()  
+    print_table(n)  
 
-    def lagrange_coefficients(data):
+    def lagrange_coefficients(val):
         coefficients = []
         for i in range(n):
-           xi = data[i][0]
-           yi = data[i][1]
+           xi = val[i][0]
+           yi = val[i][1]
            li = 1
            for j in range(n):
                 if i == j:
                     continue
-                xj = data[j][0]
-                yj = data[j][1]
+                xj = val[j][0]
+                yj = val[j][1]
                 li *= (x - xj) / (xi - xj)
            coefficients.append(li)
         return coefficients
@@ -98,19 +96,19 @@ while True:
     coefficients = lagrange_coefficients(val)
 
 
-    def lagrange_interpolate(x, data, coefficients):
+    def lagrange_interpolate(x, val, coefficients):
         lx = 0
         for i in range(n):
-            xi, yi = data[i][0], data[i][1]
+            xi, yi = val[i][0], val[i][1]
             li = coefficients[i]
             lx += li * yi
         return lx
 
     lx = lagrange_interpolate(x, val, coefficients)
 
-    
-    print('Интерполяция Лагранж', lx)
-    print('Погрешность Лагранж', abs(function(x) - lx))
+    print('%-22s %-15.15f' % ('Значение в точке', function(x)))
+    print('%-22s %-15.15f' % ('Интерполяция Лагранж', lx))
+    print('%-22s %-15.15f' % ('Погрешность Лагранж', abs(function(x) - lx)))
 
 
     def f(i, j):
@@ -134,8 +132,8 @@ while True:
 
     p = newton_interpolation()
 
-    print('Интерполяция Ньютон', p)
-    print('Погрешность Ньютон', abs(function(x) - p))
+    print('%-22s %-15.15f' %('Интерполяция Ньютон', p))
+    print('%-22s %-15.15f' % ('Погрешность Ньютон', abs(function(x) - p)))
 
     print('Если хотите продолжить, введите 1, если хотите завершить программу, введите 0')
 
