@@ -199,7 +199,7 @@ def definition(intervals_of_monotonicity, monotonicity, values_monotonicity, val
 
     #-----------------------------------------------
 
-#напюрмне хмрепонкхпнбюмхе, гюдюмхе 3.1а 1 яоняна
+#напюрмне хмрепонкхпнбюмхе, гюдюмхе 3.1, 1 яоняна
 
 
 
@@ -329,7 +329,7 @@ def solution_of_ecuation(monotonicity, val, n, values_monotonicity, f, e):
     #--------------------------------------------------------------
 
 
-#вхякеммне дхттепемжхпнбюмхе, гюдюмхе 2
+#вхякеммне дхттепемжхпнбюмхе, гюдюмхе 3.2
 
 def function2(x):
     f = math.exp(3 * x)
