@@ -14,6 +14,7 @@ def function(x):
 def table(a, m, val, h):
     k = 0
     while k < m:
+        
         a_1 = a + h * k
         b_1 = a + h * (k + 1)
         x0 = random.uniform(a_1, b_1)
@@ -177,7 +178,7 @@ def monotone(type_of_return, n_1, val, d, m, b):
     else:
         values.append(newton_interpolation(new_coefficient,x0,n_1, val1))
         intervals.append(intervals[-1])
-        intervals.append(x0)
+        intervals.append(val[-1][0])
     if type_of_return == 0:
         return intervals
     if type_of_return == 1:
@@ -212,7 +213,7 @@ def check_interval_of_monotonicity(j, values_monotonicity, f):
 def list_monotonicity(i, l, monotonicity):
     l0 = []
     for j in range(len(l)):
-        if l[j][0] < monotonicity[i][1] and l[j][0] > monotonicity[i][0]:
+        if l[j][0] <= monotonicity[i][1] and l[j][0] >= monotonicity[i][0]:
             l0.append(list(l[j]))
 
     return l0
@@ -229,18 +230,21 @@ def interpolation_with_monotonicity(monotonicity, val, f, n_1, values_monotonici
     list_answer = []
     for i in range(len(monotonicity)):
         if check_interval_of_monotonicity(i, values_monotonicity, f) == 1:
+
             list_monoton = list_monotonicity(i, val, monotonicity)
+           
+            
             list_monoton = swap_x_fx(f, list_monoton)
             sort(list_monoton)
+            
             n0 = degree(len(list_monoton), n_1)
             coeff.extend(f_1(n0, list_monoton))
+            
             p = newton_interpolation(coeff, f, n0, list_monoton)
             list_answer.append(p)
             coeff.clear()
             list_monoton.clear()
     return list_answer
-
-
 
 
     #-------------------------------------------------------
@@ -288,10 +292,10 @@ def bisection(a, b, small_list, n, e, f):
 
         n0 = degree(len(small_list), n)
 
-        while  minimum(small_list_a, n0) != minimum(small_list_c, n0) and (b - a) / 2 > 2 * e:
-            
+        while  minimum(small_list_a, n0) != minimum(small_list_c, n0) and (b - a) > 2 * e:
             c = (a + b) / 2
-            if (newton_interpolation(f_1(n0, small_list_a), a, n0 - 1, small_list_a) - f) * (newton_interpolation(f_1(n0, small_list_c), c, n0 - 1, small_list_c) - f) <= 0:
+
+            if (newton_interpolation(f_1(n0, small_list_a), a, n0, small_list_a) - f) * (newton_interpolation(f_1(n0, small_list_c), c, n0, small_list_c) - f) <= 0:
                 b = c
             else:
                 a = c
@@ -309,6 +313,8 @@ def bisection(a, b, small_list, n, e, f):
                 a = c
             k = k + 1
     c = (a + b) / 2
+    #print('finall c =', c)
+    #print('f(c) =', function(c))
     return c
 
 
@@ -339,7 +345,7 @@ def table_evenly(m2, a, h, val):
     k = 0
     while k < m2:
         a_1 = a + h * k
-        x0 = a_1
+        x0 = round(a_1, 10)
         f = function2(x0)
         val[k][0] = x0
         val[k][1] = f
@@ -399,19 +405,21 @@ def main():
     
 
     while True:
-        print('Введите степень многочлена для определения промежутков монотонности')
+        print('Введите степень многочлена для определения промежутков монотонности <=', m - 1)
         n_1 = int(input())
         if n_1 > m - 1:
             print('Недопустимая степень')
         else:
             break
 
-    
+    print()
     print('Введите количество отрезков для определения промежутков мнотонности')
     d = int(input())
-
+    print()
     intervals_of_monotonicity = []
     intervals_of_monotonicity = monotone(0, n_1, val, d, m, b)
+
+ 
     
     values = []
     values = monotone(1, n_1, val, d, m, b)
@@ -435,21 +443,26 @@ def main():
 
     definition(intervals_of_monotonicity, monotonicity, values_monotonicity, values)
 
+    
+
     while True:
         print()
         print('Введите значение F')
         
         f = float(input())
-        
-        print('Введите точность е')
-        
-        e = float(input())
 
+        print()
         print('Введите степень многочлена')
         print('Если степень многочлена превышает количество узлов в промежутке монотонности, то будет построен многочлен максимально возможной степени')
 
         n = int(input())
+        
+        print()
+        print('Введите точность е')
+        
+        e = float(input())
 
+        print()
         answer_1 = []
         answer_1 = interpolation_with_monotonicity(monotonicity, val, f, n, values_monotonicity)
         print('Задание 3.1, способ 1')
@@ -465,6 +478,7 @@ def main():
         for i in range(len(answer_2)):
             print(i + 1,'X =', answer_2[i], '|f(X) - F| =', abs(function(answer_2[i]) - f))
 
+        print()
         print('Для ввода других параметров F, n и e введите 1, для перехода к заданию 2 введите 0')
         flag = int(input())
         if flag == 0:
@@ -473,10 +487,13 @@ def main():
     while True:
         print('Введите начало отрезка а')
         a2 = float(input())
+        print()
         print('Введите h')
         h2 = float(input())
+        print()
         print('Введите количество точек m + 1')
         m2 = int(input())
+        print()
 
         val2 = [0.0] * m2
         for i in range(m2):
